@@ -18,7 +18,7 @@ public class BST {
         System.out.println(search(root, 40) != null ? "Found" : "Not found");
     }
 
-    static Node insert(Node root, int key) {
+    public static Node insert(Node root, int key) {
         if (root == null) {
             return new Node(key);
         }
@@ -34,7 +34,7 @@ public class BST {
         return root;
     }
 
-    static Node insertIterate(Node root, int key) {
+    public static Node insertIterate(Node root, int key) {
         Node temp = new Node(key);
         if (root == null) {
             return temp;
@@ -62,7 +62,7 @@ public class BST {
         return root;
     }
 
-    static Node search(Node root, int key) {
+    public static Node search(Node root, int key) {
         if (root == null || root.key == key) {
             return root;
         }
@@ -74,13 +74,29 @@ public class BST {
         }
     }
 
-    static class Node {
-        int key;
-        Node left;
-        Node right;
+    public static class Node {
+        private final int key;
+        private Node left;
+        private Node right;
 
         public Node(int key) {
             this.key = key;
         }
+
+        public int getKey() {
+            return key;
+        }
+
+        public Node getLeft() {
+            return left;
+        }
+
+        public Node getRight() {
+            return right;
+        }
+    }
+
+    public static boolean isLeaf(Node node) {
+        return node != null && node.left == null && node.right == null;
     }
 }
